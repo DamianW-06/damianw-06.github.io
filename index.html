@@ -1,11 +1,160 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>My Site</title>
+    <title>Your Name</title>
+    <meta name="description" content="Minimal personal site" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body>
-    <h1>Hello from GitHub Pages</h1>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Go to Home">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Your Name</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="#home">Home</a>
+        <a class="nav-link" href="#resume">Resume</a>
+        <a class="nav-link" href="#projects">Projects</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <!-- HOME -->
+      <section id="home" class="panel">
+        <p class="kicker">Hi, I’m</p>
+        <h1 class="title">Your Name</h1>
+        <p class="subtitle">
+          A short one-line description: what you do, what you’re building, or what you’re learning.
+        </p>
+
+        <div class="card">
+          <h2>About</h2>
+          <p>
+            Add a brief paragraph here. Keep it simple. Mention what you’re interested in and what you’re looking for.
+          </p>
+          <div class="links">
+            <a href="mailto:you@example.com">Email</a>
+            <a href="https://github.com/yourusername" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/yourusername" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESUME -->
+      <section id="resume" class="panel">
+        <h1 class="title">Resume</h1>
+        <p class="subtitle">A quick snapshot. Replace with your real content.</p>
+
+        <div class="grid">
+          <article class="card">
+            <h2>Experience</h2>
+            <ul class="list">
+              <li>
+                <div class="row">
+                  <strong>Role Title</strong>
+                  <span class="muted">2024–Present</span>
+                </div>
+                <div class="muted">Company · Location</div>
+                <p class="tight">
+                  Impact-focused bullet or two. What changed because you were there?
+                </p>
+              </li>
+              <li>
+                <div class="row">
+                  <strong>Role Title</strong>
+                  <span class="muted">2022–2024</span>
+                </div>
+                <div class="muted">Company · Location</div>
+                <p class="tight">
+                  Another concise accomplishment. Keep it measurable if you can.
+                </p>
+              </li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h2>Skills</h2>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Git</span>
+              <span class="tag">React</span>
+              <span class="tag">Node</span>
+            </div>
+
+            <hr class="rule" />
+
+            <h2>Education</h2>
+            <div class="row">
+              <strong>School / Program</strong>
+              <span class="muted">Year</span>
+            </div>
+            <div class="muted">Degree · City</div>
+          </article>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="panel">
+        <h1 class="title">Projects</h1>
+        <p class="subtitle">A few things I’ve built.</p>
+
+        <div class="projects">
+          <a class="project card" href="#" target="_blank" rel="noreferrer">
+            <div class="row">
+              <strong>Project One</strong>
+              <span class="muted">2025</span>
+            </div>
+            <p class="tight">
+              One-sentence description. What it does and who it’s for.
+            </p>
+            <span class="pill">View</span>
+          </a>
+
+          <a class="project card" href="#" target="_blank" rel="noreferrer">
+            <div class="row">
+              <strong>Project Two</strong>
+              <span class="muted">2024</span>
+            </div>
+            <p class="tight">
+              Another short description. Mention tech or outcome.
+            </p>
+            <span class="pill">View</span>
+          </a>
+
+          <a class="project card" href="#" target="_blank" rel="noreferrer">
+            <div class="row">
+              <strong>Project Three</strong>
+              <span class="muted">2023</span>
+            </div>
+            <p class="tight">
+              Keep it minimal. Link to GitHub or a live demo.
+            </p>
+            <span class="pill">View</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span class="muted">© <span id="year"></span> Your Name</span>
+    </footer>
+
+    <script>
+      // Small nicety: active nav link + year
+      const links = document.querySelectorAll(".nav-link");
+      function setActive() {
+        const hash = window.location.hash || "#home";
+        links.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === hash));
+      }
+      window.addEventListener("hashchange", setActive);
+      setActive();
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
